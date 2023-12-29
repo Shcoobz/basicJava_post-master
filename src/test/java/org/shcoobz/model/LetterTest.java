@@ -1,6 +1,7 @@
 package org.shcoobz.model;
 
 import org.junit.jupiter.api.Test;
+import org.shcoobz.postable.Letter;
 
 import java.time.LocalDate;
 

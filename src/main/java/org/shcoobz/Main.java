@@ -1,51 +1,67 @@
 package org.shcoobz;
 
 import org.shcoobz.model.Address;
-import org.shcoobz.model.Box;
 import org.shcoobz.model.BoxType;
-import org.shcoobz.model.Letter;
 import org.shcoobz.service.PostOffice;
+import org.shcoobz.ui.UserInterface;
+import org.shcoobz.util.PostUtil;
 
 import java.time.LocalDate;
 
+/**
+ * The main class of the post office simulator application.
+ * This class is responsible for initializing the post office, posting items, and displaying details about the posted items.
+ */
 public class Main {
   private static PostOffice postOffice = new PostOffice();
 
+  /**
+   * The entry point of the application. It sets up the user interface, posts items for today and a specific date,
+   * and then prints details about the posted items for both dates.
+   *
+   * @param args Command line arguments (not used).
+   */
   public static void main(String[] args) {
+    UserInterface.printLogo();
+    UserInterface.printWelcome();
+
+
     LocalDate today = LocalDate.now();
     LocalDate specificDate = LocalDate.of(2022, 12, 3);
 
-    // post letters and boxes for today
-    postLetter(new Address("Wien"), today);
-    postBox(new Address("Urb"), today, 500, BoxType.SMALL);
-    postBox(new Address("Retz"), today, 1500, BoxType.BIG);
-    postBox(new Address("Wien"), today, 2500, BoxType.BIG);
+    postItemsForToday(today);
+    postItemsForSpecificDate(specificDate);
 
-    // post letters and boxes for specific date
-    postLetter(new Address("Wien"), specificDate);
-    postBox(new Address("Urb"), specificDate, 500, BoxType.SMALL);
-    postBox(new Address("Retz"), specificDate, 1500, BoxType.BIG);
-    postBox(new Address("Wien"), specificDate, 2500, BoxType.BIG);
-
-    printPostOfficeDetailsForDate(today);
-    printPostOfficeDetailsForDate(specificDate);
+    UserInterface.printPostOfficeDetailsForDate(today, postOffice);
+    UserInterface.printPostOfficeDetailsForDate(specificDate, postOffice);
   }
 
-  // utility methods
-  private static void postLetter(Address address, LocalDate date) {
-    Letter letter = new Letter(address, date);
-    postOffice.postItem(letter);
+  /**
+   * Posts a series of letters and boxes for the given date using utility methods.
+   * This method demonstrates how items can be posted to the post office for a specific date.
+   *
+   * @param date The date for which items are to be posted.
+   */
+  private static void postItemsForToday(LocalDate date) {
+    PostUtil.postLetter(postOffice, new Address("Wien"), date);
+    PostUtil.postBox(postOffice, new Address("Urb"), date, 500, BoxType.SMALL);
+    PostUtil.postBox(postOffice, new Address("Retz"), date, 1500, BoxType.BIG);
+    PostUtil.postBox(postOffice, new Address("Wien"), date, 2500, BoxType.BIG);
+    PostUtil.postBox(postOffice, new Address("Wien"), date, 3500, BoxType.BIG);
   }
 
-  private static void postBox(Address address, LocalDate date, int weight, BoxType boxType) {
-    Box box = new Box(address, date, weight, boxType);
-    postOffice.postItem(box);
-  }
-
-  private static void printPostOfficeDetailsForDate(LocalDate date) {
-    System.out.println("\n***** Post Office Details for " + date + ":");
-    postOffice.printPostedItemsOnDate(date);
-    postOffice.printIncomeOnDate(date);
+  /**
+   * Posts a series of letters and boxes for a specific past date using utility methods.
+   * This method demonstrates how items can be posted to the post office for a past date.
+   *
+   * @param date The specific past date for which items are to be posted.
+   */
+  private static void postItemsForSpecificDate(LocalDate date) {
+    PostUtil.postLetter(postOffice, new Address("Wien"), date);
+    PostUtil.postBox(postOffice, new Address("Urb"), date, 500, BoxType.SMALL);
+    PostUtil.postBox(postOffice, new Address("Retz"), date, 1500, BoxType.BIG);
+    PostUtil.postBox(postOffice, new Address("Wien"), date, 2500, BoxType.BIG);
+    PostUtil.postBox(postOffice, new Address("Wien"), date, 3500, BoxType.BIG);
   }
 }
 

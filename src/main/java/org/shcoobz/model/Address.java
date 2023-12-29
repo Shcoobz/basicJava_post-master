@@ -1,13 +1,19 @@
 package org.shcoobz.model;
 
-/*
-* simple and concise way to create immutable data-carrying objects
-* simple data class representing an address
-* automatically generate getter methods for all components (fields) declared in record, making it easy to access the data
-* */
+/**
+ * A simple immutable data-carrying object representing an address.
+ * This record is a concise way to encapsulate address information.
+ * It automatically generates a getter method for the city component.
+ */
+public record Address(String city) {
 
-// public record Address(String street, String city, String postalCode) {}
+  /**
+   * Retrieves the city component of the address.
+   *
+   * @return The city as a String.
+   */
 
-public record Address(String city) {}
+  // The getter method for 'city' is implicitly provided by the record.
+}
 
 
