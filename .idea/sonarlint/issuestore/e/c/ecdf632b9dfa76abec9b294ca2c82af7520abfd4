@@ -1,0 +1,19 @@
+
+d
+java:S11920"HDefine a constant instead of duplicating this literal "big box" 3 times.(ããÚ$8á™öÔÃ1
+l
+java:S1192-"JDefine a constant instead of duplicating this literal "small box" 3 times.(ÄËÀşÿÿÿÿ8â™öÔÃ1
+d
+java:S1192+"GDefine a constant instead of duplicating this literal "letter" 3 times.(áâƒ÷8â™öÔÃ1
+o
+java:S6204&"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8ÄÃçÄÄ1
+b
+java:S6201-"@Replace this instanceof check and cast with 'instanceof Box box'(ÄËÀşÿÿÿÿ8€¯êÔÃ1
+\
+java:S62010"@Replace this instanceof check and cast with 'instanceof Box box'(ããÚ$8ó™öÔÃ1
+b
+java:S6201P"@Replace this instanceof check and cast with 'instanceof Box box'(ô´“ˆıÿÿÿÿ8û™öÔÃ1
+G	java:S106Y"+Replace this use of System.out by a logger.(Ë·ñÃ8¯êÔÃ1
+L	java:S106["+Replace this use of System.out by a logger.(ø¹áÙùÿÿÿÿ8¯êÔÃ1
+L	java:S106h"+Replace this use of System.out by a logger.( €ŒÇüÿÿÿÿ8ˆ¯êÔÃ1
+]	java:S125d"<This block of commented-out lines of code should be removed.(µÿìıÿÿÿÿ8‰¯êÔÃ1
